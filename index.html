@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Result Checker — Zenith English Medium School</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f6fb; min-height: 100vh; padding: 20px; }
+.container { max-width: 900px; margin: 0 auto; }
+.header { background: linear-gradient(135deg, #0C447C 0%, #185FA5 60%, #378ADD 100%); color: white; padding: 2rem 1.5rem 1.5rem; border-radius: 14px; margin-bottom: 1.5rem; position: relative; overflow: hidden; }
+.header::before { content: ''; position: absolute; top: -30px; right: -30px; width: 160px; height: 160px; border-radius: 50%; background: rgba(255,255,255,0.06); }
+.header::after { content: ''; position: absolute; bottom: -20px; right: 80px; width: 90px; height: 90px; border-radius: 50%; background: rgba(255,255,255,0.04); }
+.school-logo { width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 12px; }
+.school-name { font-size: 22px; font-weight: 600; color: white; }
+.school-sub { font-size: 13px; color: rgba(255,255,255,0.78); margin-top: 4px; }
+
+/* Coming Soon Section */
+.coming-soon { background: white; border-radius: 14px; padding: 2.5rem 1.5rem; margin-bottom: 1.25rem; box-shadow: 0 1px 4px rgba(0,0,0,0.07); text-align: center; }
+.cs-icon { font-size: 48px; margin-bottom: 1rem; }
+.cs-title { font-size: 24px; font-weight: 700; color: #0C447C; margin-bottom: 8px; }
+.cs-subtitle { font-size: 14px; color: #777; margin-bottom: 2rem; line-height: 1.6; }
+
+.timer-grid { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 2rem; }
+.timer-block { background: linear-gradient(135deg, #0C447C 0%, #185FA5 100%); border-radius: 12px; padding: 18px 20px 14px; min-width: 80px; color: white; position: relative; }
+.timer-block::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; background: #185FA5; border-radius: 50%; display: none; }
+.timer-num { font-size: 38px; font-weight: 700; line-height: 1; letter-spacing: -1px; }
+.timer-label { font-size: 11px; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px; }
+
+.timer-sep { font-size: 32px; font-weight: 700; color: #185FA5; align-self: center; padding-bottom: 20px; opacity: 0.5; }
+
+.cs-progress-wrap { background: #f0f4fb; border-radius: 100px; height: 6px; max-width: 360px; margin: 0 auto 1.5rem; overflow: hidden; }
+.cs-progress-bar { height: 100%; background: linear-gradient(90deg, #0C447C, #378ADD); border-radius: 100px; transition: width 1s linear; }
+
+.cs-note { font-size: 13px; color: #999; background: #f7f9ff; border: 1px solid #dde8f8; border-radius: 8px; padding: 10px 16px; max-width: 400px; margin: 0 auto; line-height: 1.6; }
+.cs-note strong { color: #185FA5; }
+
+#expired-msg { display: none; }
+.expired-box { background: #dcfce7; border: 1px solid #86efac; border-radius: 10px; padding: 16px 20px; color: #166534; font-size: 15px; font-weight: 600; max-width: 400px; margin: 0 auto; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="school-logo" style="text-align: center;">
+      <img src="logo.png" alt="School Logo" style="width: 60px; height: auto;" onerror="this.style.display='none';this.parentNode.innerHTML='🎓';">
+    </div>
+    <div class="school-name">Zenith English Medium School</div>
+    <div class="school-sub">Kerabari-5, Morang, Nepal &nbsp;·&nbsp; School Code: 050660009</div>
+    <div class="school-sub" style="margin-top:6px;font-size:12px;opacity:0.6;">BLE 2082 Grade Wise Result Report — 2082/83</div>
+  </div>
+
+  <!-- Coming Soon Timer -->
+  <div class="coming-soon">
+    <div class="cs-icon">📋</div>
+    <div class="cs-title">Results Coming Soon</div>
+    <div class="cs-subtitle">The BLE 2082 results will be published shortly.<br>Please check back when the countdown reaches zero.</div>
+
+    <div class="timer-grid">
+      <div class="timer-block">
+        <div class="timer-num" id="t-hours">48</div>
+        <div class="timer-label">Hours</div>
+      </div>
+      <div class="timer-sep">:</div>
+      <div class="timer-block">
+        <div class="timer-num" id="t-minutes">00</div>
+        <div class="timer-label">Minutes</div>
+      </div>
+      <div class="timer-sep">:</div>
+      <div class="timer-block">
+        <div class="timer-num" id="t-seconds">00</div>
+        <div class="timer-label">Seconds</div>
+      </div>
+    </div>
+
+    <div class="cs-progress-wrap">
+      <div class="cs-progress-bar" id="progress-bar" style="width: 0%;"></div>
+    </div>
+
+    <div id="expired-msg">
+      <div class="expired-box">✅ Results are now available! Please refresh the page.</div>
+    </div>
+
+    <div class="cs-note" id="cs-note">
+      Results for <strong>24 students</strong> of Grade 8 will be available here.<br>
+      You will need your <strong>Symbol Number</strong> and <strong>Date of Birth</strong> to access your result.
+    </div>
+  </div>
+
+</div>
+
+<footer style="text-align: center; padding: 10px; background: #f1f1f1; margin-top: 20px; border-radius: 8px;">
+  Made with ❤️ by Nitesh
+</footer>
+
+<script>
+  // Set the countdown target: 48 hours from first visit, stored in localStorage
+  const DURATION_MS = 48 * 60 * 60 * 1000;
+  const STORAGE_KEY = 'zenith_result_launch';
+
+  let launchTime = localStorage.getItem(STORAGE_KEY);
+  if (!launchTime) {
+    launchTime = Date.now() + DURATION_MS;
+    localStorage.setItem(STORAGE_KEY, launchTime);
+  } else {
+    launchTime = parseInt(launchTime);
+  }
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    const now = Date.now();
+    const remaining = launchTime - now;
+
+    if (remaining <= 0) {
+      document.getElementById('t-hours').textContent = '00';
+      document.getElementById('t-minutes').textContent = '00';
+      document.getElementById('t-seconds').textContent = '00';
+      document.getElementById('progress-bar').style.width = '100%';
+      document.getElementById('expired-msg').style.display = 'block';
+      document.getElementById('cs-note').style.display = 'none';
+      return;
+    }
+
+    const totalHours = Math.floor(remaining / (1000 * 60 * 60));
+    const minutes    = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds    = Math.floor((remaining % (1000 * 60)) / 1000);
+
+    document.getElementById('t-hours').textContent   = pad(totalHours);
+    document.getElementById('t-minutes').textContent = pad(minutes);
+    document.getElementById('t-seconds').textContent = pad(seconds);
+
+    const elapsed = DURATION_MS - remaining;
+    const pct = Math.min(100, (elapsed / DURATION_MS) * 100);
+    document.getElementById('progress-bar').style.width = pct.toFixed(2) + '%';
+
+    setTimeout(tick, 1000);
+  }
+
+  tick();
+</script>
+</body>
+</html>
 
