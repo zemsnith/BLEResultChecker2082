@@ -14,132 +14,184 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f6fb; min-heig
 .school-logo { width: 56px; height: 56px; border-radius: 50%; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 12px; }
 .school-name { font-size: 22px; font-weight: 600; color: white; }
 .school-sub { font-size: 13px; color: rgba(255,255,255,0.78); margin-top: 4px; }
-
-/* Coming Soon Section */
-.coming-soon { background: white; border-radius: 14px; padding: 2.5rem 1.5rem; margin-bottom: 1.25rem; box-shadow: 0 1px 4px rgba(0,0,0,0.07); text-align: center; }
-.cs-icon { font-size: 48px; margin-bottom: 1rem; }
-.cs-title { font-size: 24px; font-weight: 700; color: #0C447C; margin-bottom: 8px; }
-.cs-subtitle { font-size: 14px; color: #777; margin-bottom: 2rem; line-height: 1.6; }
-
-.timer-grid { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 2rem; }
-.timer-block { background: linear-gradient(135deg, #0C447C 0%, #185FA5 100%); border-radius: 12px; padding: 18px 20px 14px; min-width: 80px; color: white; position: relative; }
-.timer-block::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 6px; height: 6px; background: #185FA5; border-radius: 50%; display: none; }
-.timer-num { font-size: 38px; font-weight: 700; line-height: 1; letter-spacing: -1px; }
-.timer-label { font-size: 11px; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px; }
-
-.timer-sep { font-size: 32px; font-weight: 700; color: #185FA5; align-self: center; padding-bottom: 20px; opacity: 0.5; }
-
-.cs-progress-wrap { background: #f0f4fb; border-radius: 100px; height: 6px; max-width: 360px; margin: 0 auto 1.5rem; overflow: hidden; }
-.cs-progress-bar { height: 100%; background: linear-gradient(90deg, #0C447C, #378ADD); border-radius: 100px; transition: width 1s linear; }
-
-.cs-note { font-size: 13px; color: #999; background: #f7f9ff; border: 1px solid #dde8f8; border-radius: 8px; padding: 10px 16px; max-width: 400px; margin: 0 auto; line-height: 1.6; }
-.cs-note strong { color: #185FA5; }
-
-#expired-msg { display: none; }
-.expired-box { background: #dcfce7; border: 1px solid #86efac; border-radius: 10px; padding: 16px 20px; color: #166534; font-size: 15px; font-weight: 600; max-width: 400px; margin: 0 auto; }
+.search-section { background: white; border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+.search-label { font-size: 13px; color: #666; margin-bottom: 8px; display: block; }
+.search-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.search-row input { flex: 1; min-width: 200px; height: 42px; padding: 0 14px; border: 1px solid #dde2ee; border-radius: 8px; font-size: 14px; color: #222; outline: none; letter-spacing: 0.05em; }
+.search-row input:focus { border-color: #185FA5; box-shadow: 0 0 0 3px rgba(24,95,165,0.12); }
+.btn-search { height: 42px; padding: 0 22px; background: #185FA5; color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; }
+.btn-search:hover { background: #0C447C; }
+.btn-clear { height: 42px; padding: 0 18px; background: #f0f2f7; color: #555; border: 1px solid #dde2ee; border-radius: 8px; font-size: 14px; cursor: pointer; }
+.btn-clear:hover { background: #e4e8f0; }
+.hint-box { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 14px; font-size: 12px; color: #92400e; margin-top: 10px; }
+.section-title { font-size: 12px; font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+.list-view { }
+.list-item { display: flex; align-items: center; gap: 12px; padding: 11px 16px; background: white; border: 1px solid #eaecf2; border-radius: 10px; cursor: pointer; margin-bottom: 8px; transition: all 0.15s; }
+.list-item:hover { background: #f0f5ff; border-color: #b8cef0; }
+.list-sno { font-size: 12px; color: #aaa; min-width: 22px; text-align: right; }
+.list-avatar { width: 36px; height: 36px; border-radius: 50%; background: #dbeafe; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #185FA5; flex-shrink: 0; }
+.list-name { font-size: 14px; font-weight: 500; flex: 1; color: #1a1a2e; }
+.list-symbol { font-size: 12px; color: #888; }
+.list-gpa { font-size: 13px; font-weight: 600; min-width: 60px; text-align: right; }
+.list-arrow { color: #ccc; font-size: 18px; }
+.result-card { background: white; border: 1px solid #eaecf2; border-radius: 14px; padding: 1.4rem; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+.student-header { display: flex; align-items: center; gap: 16px; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid #f0f0f5; }
+.avatar { width: 52px; height: 52px; border-radius: 50%; background: #dbeafe; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 17px; color: #185FA5; flex-shrink: 0; }
+.student-name { font-size: 18px; font-weight: 600; color: #1a1a2e; }
+.student-meta { font-size: 13px; color: #777; margin-top: 3px; }
+.meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 1.25rem; }
+.meta-item { background: #f7f8fc; border-radius: 8px; padding: 10px 12px; }
+.meta-key { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+.meta-val { font-size: 13px; font-weight: 500; color: #1a1a2e; }
+.subjects-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.subjects-table th { font-size: 11px; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; padding: 7px 10px; text-align: left; border-bottom: 1px solid #eee; background: #f7f8fc; }
+.subjects-table td { padding: 9px 10px; border-bottom: 1px solid #f3f3f6; color: #1a1a2e; }
+.subjects-table tr:last-child td { border-bottom: none; }
+.subjects-table tr:hover td { background: #f7f9ff; }
+.grade-badge { display: inline-block; padding: 3px 10px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+.grade-a-plus { background: #dcfce7; color: #166534; }
+.grade-a { background: #d1fae5; color: #065f46; }
+.grade-b-plus { background: #dbeafe; color: #1e40af; }
+.grade-b { background: #ede9fe; color: #5b21b6; }
+.grade-c-plus { background: #fef3c7; color: #92400e; }
+.grade-c { background: #fef9c3; color: #854d0e; }
+.grade-d { background: #fee2e2; color: #991b1b; }
+.grade-ng { background: #f1f1f1; color: #666; }
+.gpa-display { display: flex; align-items: center; gap: 18px; padding: 16px 18px; background: #f7f8fc; border-radius: 10px; margin-top: 1rem; }
+.gpa-circle { width: 58px; height: 58px; border-radius: 50%; border: 3px solid; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+.gpa-label { font-size: 12px; color: #888; margin-bottom: 4px; }
+.gpa-value { font-size: 22px; font-weight: 700; }
+.no-result { text-align: center; padding: 3rem 1rem; background: white; border-radius: 12px; }
+.no-result-icon { font-size: 36px; margin-bottom: 12px; }
+.back-btn { display: flex; align-items: center; gap: 6px; background: none; border: none; cursor: pointer; color: #185FA5; font-size: 13px; padding: 0; margin-bottom: 14px; font-family: inherit; }
+.back-btn:hover { text-decoration: underline; }
+.print-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; background: #185FA5; color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; margin-top: 1rem; font-family: inherit; }
+.print-btn:hover { background: #0C447C; }
+@media print {
+  body { background: white; padding: 0; }
+  .search-section, .back-btn, .print-btn, .list-view { display: none !important; }
+  .result-card { box-shadow: none; border: 1px solid #ccc; }
+  .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+@media (max-width: 600px) {
+  .subjects-table th:nth-child(3), .subjects-table td:nth-child(3),
+  .subjects-table th:nth-child(5), .subjects-table td:nth-child(5) { display: none; }
+}
 </style>
 </head>
 <body>
 <div class="container">
 
-  <div class="header">
-    <div class="school-logo" style="text-align: center;">
-      <img src="logo.png" alt="School Logo" style="width: 60px; height: auto;" onerror="this.style.display='none';this.parentNode.innerHTML='🎓';">
-    </div>
-    <div class="school-name">Zenith English Medium School</div>
-    <div class="school-sub">Kerabari-5, Morang, Nepal &nbsp;·&nbsp; School Code: 050660009</div>
-    <div class="school-sub" style="margin-top:6px;font-size:12px;opacity:0.6;">BLE 2082 Grade Wise Result Report — 2082/83</div>
+<div class="header">
+  <div class="school-logo" style="text-align: center;">
+    <img src="logo.png" alt="School Logo" style="width: 60px; height: auto;">
   </div>
-
-  <!-- Coming Soon Timer -->
-  <div class="coming-soon">
-    <div class="cs-icon">📋</div>
-    <div class="cs-title">Results Coming Soon</div>
-    <div class="cs-subtitle">The BLE 2082 results will be published shortly.<br>Please check back when the countdown reaches zero.</div>
-
-    <div class="timer-grid">
-      <div class="timer-block">
-        <div class="timer-num" id="t-hours">48</div>
-        <div class="timer-label">Hours</div>
-      </div>
-      <div class="timer-sep">:</div>
-      <div class="timer-block">
-        <div class="timer-num" id="t-minutes">00</div>
-        <div class="timer-label">Minutes</div>
-      </div>
-      <div class="timer-sep">:</div>
-      <div class="timer-block">
-        <div class="timer-num" id="t-seconds">00</div>
-        <div class="timer-label">Seconds</div>
-      </div>
-    </div>
-
-    <div class="cs-progress-wrap">
-      <div class="cs-progress-bar" id="progress-bar" style="width: 0%;"></div>
-    </div>
-
-    <div id="expired-msg">
-      <div class="expired-box">✅ Results are now available! Please refresh the page.</div>
-    </div>
-
-    <div class="cs-note" id="cs-note">
-      Results for <strong>24 students</strong> of Grade 8 will be available here.<br>
-      You will need your <strong>Symbol Number</strong> and <strong>Date of Birth</strong> to access your result.
-    </div>
-  </div>
-
+  <div class="school-name">Zenith English Medium School</div>
+  <div class="school-sub">Kerabari-5, Morang, Nepal &nbsp;·&nbsp; School Code: 050660009</div>
+  <div class="school-sub" style="margin-top:6px;font-size:12px;opacity:0.6;">BLE 2082 Grade Wise Result Report — 2082/83</div>
 </div>
 
-<footer style="text-align: center; padding: 10px; background: #f1f1f1; margin-top: 20px; border-radius: 8px;">
+<div class="search-section">
+  <span class="search-label">🔒 Enter your Symbol Number and Date of Birth to view your result</span>
+  <div class="search-row">
+    <input type="number" id="searchInput" placeholder="Symbol No. (e.g. 82544)" onkeydown="if(event.key==='Enter')handleSearch()" style="flex:1;min-width:160px" />
+    <input type="text" id="dobInput" placeholder="Date of Birth (YYYY-MM-DD)" onkeydown="if(event.key==='Enter')handleSearch()" style="flex:1;min-width:180px" />
+    <button class="btn-search" onclick="handleSearch()">View Result</button>
+    <button class="btn-clear" onclick="clearSearch()">Clear</button>
+  </div>
+  <div class="hint-box">🛡️ Both Symbol Number and Date of Birth must match to access the result. Use Nepali calendar date format: YYYY-MM-DD (e.g. 2068-07-03)</div>
+</div>
+
+<div id="mainContent"></div>
+
+</div>
+<script>
+const students = [
+  {sn:1,name:"Alina Limbu",dob:"2069-01-24",father:"Nar Kumar Limbu",mother:"Durga Limbu",symbol:"82544",subjects:{Nepali:{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},English:{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},Mathematics:{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},"Science & Technology":{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},"Social Studies":{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},"Health & Creative Art":{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},"Hamro Kerabari":{in:"A+",th:"D",total:"B",inGp:4.00,thGp:1.60,totalGp:2.80}},gpa:0.00},
+  {sn:2,name:"Anil Magar",dob:"2066-07-29",father:"Lal Bahadur Magar",mother:"Shanti Maya Magar",symbol:"82545",subjects:{Nepali:{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},English:{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},Mathematics:{in:"B",th:"NG",total:"NG",inGp:2.80,thGp:0.00,totalGp:1.40},"Science & Technology":{in:"B",th:"D",total:"C+",inGp:2.80,thGp:1.60,totalGp:2.20},"Social Studies":{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},"Health & Creative Art":{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},"Hamro Kerabari":{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80}},gpa:0.00},
+  {sn:3,name:"Anjal Magar",dob:"2068-06-29",father:"Dhal Bahadur Lungeli Magar",mother:"Kumari Magar",symbol:"82546",subjects:{Nepali:{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},English:{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},Mathematics:{in:"C+",th:"NG",total:"NG",inGp:2.40,thGp:0.00,totalGp:1.20},"Science & Technology":{in:"C+",th:"NG",total:"NG",inGp:2.40,thGp:0.00,totalGp:1.20},"Social Studies":{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},"Health & Creative Art":{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},"Hamro Kerabari":{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80}},gpa:0.00},
+  {sn:4,name:"Ansh Lhayo Magar",dob:"2068-03-24",father:"Sabin Kumar Lhayo Magar",mother:"Om Maya Lhayo Magar",symbol:"82547",subjects:{Nepali:{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},English:{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},Mathematics:{in:"B+",th:"NG",total:"NG",inGp:3.20,thGp:0.00,totalGp:1.60},"Science & Technology":{in:"B+",th:"D",total:"C+",inGp:3.20,thGp:1.60,totalGp:2.40},"Social Studies":{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},"Health & Creative Art":{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},"Hamro Kerabari":{in:"A+",th:"NG",total:"NG",inGp:4.00,thGp:0.00,totalGp:2.00}},gpa:0.00},
+  {sn:5,name:"Bipasha Limbu",dob:"2068-10-09",father:"Shusan Limbu",mother:"Dambar Kumari Limbu",symbol:"82548",subjects:{Nepali:{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},English:{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},Mathematics:{in:"B+",th:"NG",total:"NG",inGp:3.20,thGp:0.00,totalGp:1.60},"Science & Technology":{in:"B+",th:"D",total:"C+",inGp:3.20,thGp:1.60,totalGp:2.40},"Social Studies":{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},"Health & Creative Art":{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},"Hamro Kerabari":{in:"A+",th:"D",total:"B",inGp:4.00,thGp:1.60,totalGp:2.80}},gpa:0.00},
+  {sn:6,name:"Dipsan Magar",dob:"2067-04-17",father:"Dinesh Magar",mother:"Madhumaya Magar",symbol:"82549",subjects:{Nepali:{in:"A+",th:"D",total:"B",inGp:4.00,thGp:1.60,totalGp:2.80},English:{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},Mathematics:{in:"B+",th:"C",total:"B",inGp:3.20,thGp:2.00,totalGp:2.60},"Science & Technology":{in:"B+",th:"C+",total:"B",inGp:3.20,thGp:2.40,totalGp:2.80},"Social Studies":{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00},"Health & Creative Art":{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},"Hamro Kerabari":{in:"A+",th:"B",total:"A",inGp:4.00,thGp:2.80,totalGp:3.40}},gpa:2.89},
+  {sn:7,name:"Gaurab Limbu",dob:"2068-07-03",father:"Chandra Kumar Limbu",mother:"Ganga Limbu",symbol:"82550",subjects:{Nepali:{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},English:{in:"A+",th:"C+",total:"B+",inGp:4.00,thGp:2.40,totalGp:3.20},Mathematics:{in:"A+",th:"C+",total:"B+",inGp:4.00,thGp:2.40,totalGp:3.20},"Science & Technology":{in:"A+",th:"B+",total:"A",inGp:4.00,thGp:3.20,totalGp:3.60},"Social Studies":{in:"A+",th:"B+",total:"A",inGp:4.00,thGp:3.20,totalGp:3.60},"Health & Creative Art":{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},"Hamro Kerabari":{in:"A+",th:"B+",total:"A",inGp:4.00,thGp:3.20,totalGp:3.60}},gpa:3.33},
+  {sn:8,name:"Jeni Magar",dob:"2069-05-17",father:"Dal Bahadur Magar",mother:"Anjana Magar",symbol:"82551",subjects:{Nepali:{in:"A+",th:"B",total:"A",inGp:4.00,thGp:2.80,totalGp:3.40},English:{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00},Mathematics:{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},"Science & Technology":{in:"A",th:"B",total:"B+",inGp:3.60,thGp:2.80,totalGp:3.20},"Social Studies":{in:"A",th:"B",total:"B+",inGp:3.60,thGp:2.80,totalGp:3.20},"Health & Creative Art":{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},"Hamro Kerabari":{in:"A+",th:"B+",total:"A",inGp:4.00,thGp:3.20,totalGp:3.60}},gpa:3.14},
+  {sn:9,name:"Joresh Rai",dob:"2068-08-19",father:"Bhim Rai",mother:"Bhim Kumari Rai",symbol:"82552",subjects:{Nepali:{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00},English:{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00},Mathematics:{in:"B+",th:"NG",total:"NG",inGp:3.20,thGp:0.00,totalGp:1.60},"Science & Technology":{in:"B+",th:"D",total:"C+",inGp:3.20,thGp:1.60,totalGp:2.40},"Social Studies":{in:"A",th:"B+",total:"A",inGp:3.60,thGp:3.20,totalGp:3.40},"Health & Creative Art":{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},"Hamro Kerabari":{in:"A+",th:"A",total:"A+",inGp:4.00,thGp:3.60,totalGp:3.80}},gpa:0.00},
+  {sn:10,name:"Lahang Suhang Limbu",dob:"2068-08-22",father:"Mohan Limbu",mother:"Sita Limbu",symbol:"82553",subjects:{Nepali:{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},English:{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},Mathematics:{in:"C+",th:"NG",total:"NG",inGp:2.40,thGp:0.00,totalGp:1.20},"Science & Technology":{in:"C+",th:"NG",total:"NG",inGp:2.40,thGp:0.00,totalGp:1.20},"Social Studies":{in:"A",th:"B",total:"B+",inGp:3.60,thGp:2.80,totalGp:3.20},"Health & Creative Art":{in:"A",th:"NG",total:"NG",inGp:3.60,thGp:0.00,totalGp:1.80},"Hamro Kerabari":{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00}},gpa:0.00},
+  {sn:11,name:"Mausam Rai",dob:"2067-08-08",father:"Puspa Kumar Rai",mother:"Dipkala Rai",symbol:"82554",subjects:{Nepali:{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},English:{in:"A+",th:"C+",total:"B+",inGp:4.00,thGp:2.40,totalGp:3.20},Mathematics:{in:"B+",th:"NG",total:"NG",inGp:3.20,thGp:0.00,totalGp:1.60},"Science & Technology":{in:"B+",th:"D",total:"C+",inGp:3.20,thGp:1.60,totalGp:2.40},"Social Studies":{in:"A",th:"B",total:"B+",inGp:3.60,thGp:2.80,totalGp:3.20},"Health & Creative Art":{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},"Hamro Kerabari":{in:"A+",th:"B",total:"A",inGp:4.00,thGp:2.80,totalGp:3.40}},gpa:0.00},
+  {sn:12,name:"Naresh Gurmachhan Magar",dob:"2068-11-20",father:"Shyam Bahadur Gurmachhan",mother:"Hima Kumari Gurmachhan",symbol:"82555",subjects:{Nepali:{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00},English:{in:"A",th:"B",total:"B+",inGp:3.60,thGp:2.80,totalGp:3.20},Mathematics:{in:"B+",th:"NG",total:"NG",inGp:3.20,thGp:0.00,totalGp:1.60},"Science & Technology":{in:"B+",th:"C",total:"B",inGp:3.20,thGp:2.00,totalGp:2.60},"Social Studies":{in:"A",th:"B",total:"B+",inGp:3.60,thGp:2.80,totalGp:3.20},"Health & Creative Art":{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},"Hamro Kerabari":{in:"A+",th:"B",total:"A",inGp:4.00,thGp:2.80,totalGp:3.40}},gpa:0.00},
+  {sn:13,name:"Nilu Magar",dob:"2067-06-30",father:"Kedar Bahadur Magar",mother:"Rudra Maya Magar",symbol:"82556",subjects:{Nepali:{in:"A",th:"B+",total:"A",inGp:3.60,thGp:3.20,totalGp:3.40},English:{in:"A+",th:"B+",total:"A",inGp:4.00,thGp:3.20,totalGp:3.60},Mathematics:{in:"A+",th:"D",total:"B",inGp:4.00,thGp:1.60,totalGp:2.80},"Science & Technology":{in:"A+",th:"B",total:"A",inGp:4.00,thGp:2.80,totalGp:3.40},"Social Studies":{in:"A+",th:"B+",total:"A",inGp:4.00,thGp:3.20,totalGp:3.60},"Health & Creative Art":{in:"A+",th:"C+",total:"B+",inGp:4.00,thGp:2.40,totalGp:3.20},"Hamro Kerabari":{in:"A+",th:"A+",total:"A+",inGp:4.00,thGp:4.00,totalGp:4.00}},gpa:3.43},
+  {sn:14,name:"Phiroj Rai",dob:"2068-08-06",father:"Indra Bahadur Rai",mother:"Laxmi Rai",symbol:"82557",subjects:{Nepali:{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},English:{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},Mathematics:{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},"Science & Technology":{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},"Social Studies":{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00},"Health & Creative Art":{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},"Hamro Kerabari":{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00}},gpa:2.81},
+  {sn:15,name:"Prashna Karki",dob:"2067-10-21",father:"Padam Bahadur Karki",mother:"Ramila Karki",symbol:"82558",subjects:{Nepali:{in:"A+",th:"A",total:"A+",inGp:4.00,thGp:3.60,totalGp:3.80},English:{in:"A+",th:"A",total:"A+",inGp:4.00,thGp:3.60,totalGp:3.80},Mathematics:{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},"Science & Technology":{in:"A+",th:"B+",total:"A",inGp:4.00,thGp:3.20,totalGp:3.60},"Social Studies":{in:"A+",th:"A",total:"A+",inGp:4.00,thGp:3.60,totalGp:3.80},"Health & Creative Art":{in:"A+",th:"B",total:"A",inGp:4.00,thGp:2.80,totalGp:3.40},"Hamro Kerabari":{in:"A+",th:"A+",total:"A+",inGp:4.00,thGp:4.00,totalGp:4.00}},gpa:3.63},
+  {sn:16,name:"Rahul Bishwokarma",dob:"2068-06-29",father:"Man Bahadur Bishwokarma",mother:"Rana Maya Bishwokarma",symbol:"82559",subjects:{Nepali:{in:"A+",th:"A",total:"A+",inGp:4.00,thGp:3.60,totalGp:3.80},English:{in:"A+",th:"C+",total:"B+",inGp:4.00,thGp:2.40,totalGp:3.20},Mathematics:{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},"Science & Technology":{in:"A",th:"B",total:"B+",inGp:3.60,thGp:2.80,totalGp:3.20},"Social Studies":{in:"A+",th:"B+",total:"A",inGp:4.00,thGp:3.20,totalGp:3.60},"Health & Creative Art":{in:"A+",th:"B",total:"A",inGp:4.00,thGp:2.80,totalGp:3.40},"Hamro Kerabari":{in:"A+",th:"A",total:"A+",inGp:4.00,thGp:3.60,totalGp:3.80}},gpa:3.36},
+  {sn:17,name:"Rohit Rai",dob:"2068-05-28",father:"Harka Bahadur Rai",mother:"Kalpana Kumari Rai",symbol:"82560",subjects:{Nepali:{in:"A+",th:"D",total:"B",inGp:4.00,thGp:1.60,totalGp:2.80},English:{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},Mathematics:{in:"B+",th:"NG",total:"NG",inGp:3.20,thGp:0.00,totalGp:1.60},"Science & Technology":{in:"B+",th:"NG",total:"NG",inGp:3.20,thGp:0.00,totalGp:1.60},"Social Studies":{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00},"Health & Creative Art":{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},"Hamro Kerabari":{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80}},gpa:0.00},
+  {sn:18,name:"Saina Rai",dob:"2068-08-19",father:"Binod Rai",mother:"Kabita Rai",symbol:"82561",subjects:{Nepali:{in:"A+",th:"C+",total:"B+",inGp:4.00,thGp:2.40,totalGp:3.20},English:{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00},Mathematics:{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},"Science & Technology":{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},"Social Studies":{in:"A",th:"B",total:"B+",inGp:3.60,thGp:2.80,totalGp:3.20},"Health & Creative Art":{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},"Hamro Kerabari":{in:"A+",th:"A",total:"A+",inGp:4.00,thGp:3.60,totalGp:3.80}},gpa:3.04},
+  {sn:19,name:"Sayan Rai",dob:"2069-03-01",father:"Chitra Man Rai",mother:"Sabita Rai",symbol:"82562",subjects:{Nepali:{in:"A",th:"B",total:"B+",inGp:3.60,thGp:2.80,totalGp:3.20},English:{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},Mathematics:{in:"B+",th:"D",total:"C+",inGp:3.20,thGp:1.60,totalGp:2.40},"Science & Technology":{in:"B+",th:"D",total:"C+",inGp:3.20,thGp:1.60,totalGp:2.40},"Social Studies":{in:"A",th:"B",total:"B+",inGp:3.60,thGp:2.80,totalGp:3.20},"Health & Creative Art":{in:"A+",th:"D",total:"B",inGp:4.00,thGp:1.60,totalGp:2.80},"Hamro Kerabari":{in:"A",th:"B",total:"B+",inGp:3.60,thGp:2.80,totalGp:3.20}},gpa:2.85},
+  {sn:20,name:"Shisir Magar",dob:"2068-08-12",father:"Milan Magar",mother:"Indra Maya Rai (Magar)",symbol:"82563",subjects:{Nepali:{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00},English:{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},Mathematics:{in:"B+",th:"NG",total:"NG",inGp:3.20,thGp:0.00,totalGp:1.60},"Science & Technology":{in:"B+",th:"NG",total:"NG",inGp:3.20,thGp:0.00,totalGp:1.60},"Social Studies":{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},"Health & Creative Art":{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},"Hamro Kerabari":{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80}},gpa:0.00},
+  {sn:21,name:"Soina Tamang",dob:"2068-10-23",father:"Bhuwani Prasad Tamang",mother:"Sapana Tamang",symbol:"82564",subjects:{Nepali:{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},English:{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},Mathematics:{in:"B+",th:"NG",total:"NG",inGp:3.20,thGp:0.00,totalGp:1.60},"Science & Technology":{in:"B+",th:"NG",total:"NG",inGp:3.20,thGp:0.00,totalGp:1.60},"Social Studies":{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},"Health & Creative Art":{in:"A+",th:"D",total:"B",inGp:4.00,thGp:1.60,totalGp:2.80},"Hamro Kerabari":{in:"A+",th:"B",total:"A",inGp:4.00,thGp:2.80,totalGp:3.40}},gpa:0.00},
+  {sn:22,name:"Soniya Rai",dob:"2068-04-31",father:"Suman Rai",mother:"Anita Rai",symbol:"82565",subjects:{Nepali:{in:"A+",th:"B+",total:"A",inGp:4.00,thGp:3.20,totalGp:3.60},English:{in:"A+",th:"B",total:"A",inGp:4.00,thGp:2.80,totalGp:3.40},Mathematics:{in:"A+",th:"D",total:"B",inGp:4.00,thGp:1.60,totalGp:2.80},"Science & Technology":{in:"A+",th:"C+",total:"B+",inGp:4.00,thGp:2.40,totalGp:3.20},"Social Studies":{in:"A+",th:"B+",total:"A",inGp:4.00,thGp:3.20,totalGp:3.60},"Health & Creative Art":{in:"A+",th:"C",total:"B+",inGp:4.00,thGp:2.00,totalGp:3.00},"Hamro Kerabari":{in:"A+",th:"A+",total:"A+",inGp:4.00,thGp:4.00,totalGp:4.00}},gpa:3.38},
+  {sn:23,name:"Unchhen Limbu",dob:"2068-09-17",father:"Dambar Singh Limbu",mother:"Dhanamaya Limbu",symbol:"82566",subjects:{Nepali:{in:"A",th:"C",total:"B",inGp:3.60,thGp:2.00,totalGp:2.80},English:{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00},Mathematics:{in:"B+",th:"NG",total:"NG",inGp:3.20,thGp:0.00,totalGp:1.60},"Science & Technology":{in:"B+",th:"D",total:"C+",inGp:3.20,thGp:1.60,totalGp:2.40},"Social Studies":{in:"A",th:"B",total:"B+",inGp:3.60,thGp:2.80,totalGp:3.20},"Health & Creative Art":{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},"Hamro Kerabari":{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00}},gpa:0.00},
+  {sn:24,name:"Yunish Limbu",dob:"2067-09-23",father:"Dil Bahadur Limbu",mother:"Hasta Maya Limbu",symbol:"82567",subjects:{Nepali:{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},English:{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},Mathematics:{in:"B",th:"NG",total:"NG",inGp:2.80,thGp:0.00,totalGp:1.40},"Science & Technology":{in:"B",th:"NG",total:"NG",inGp:2.80,thGp:0.00,totalGp:1.40},"Social Studies":{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00},"Health & Creative Art":{in:"A",th:"D",total:"B",inGp:3.60,thGp:1.60,totalGp:2.60},"Hamro Kerabari":{in:"A",th:"C+",total:"B+",inGp:3.60,thGp:2.40,totalGp:3.00}},gpa:0.00}
+];
+
+function getInitials(name){return name.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();}
+function gradeClass(g){if(!g||g==='NG')return 'grade-ng';if(g==='A+')return 'grade-a-plus';if(g==='A')return 'grade-a';if(g==='B+')return 'grade-b-plus';if(g==='B')return 'grade-b';if(g==='C+')return 'grade-c-plus';if(g==='C')return 'grade-c';if(g==='D')return 'grade-d';return 'grade-ng';}
+function gpaColor(gpa){if(gpa>=3.5)return '#065f46';if(gpa>=3.0)return '#1e40af';if(gpa>=2.5)return '#92400e';if(gpa>0)return '#991b1b';return '#666';}
+function gpaLabel(gpa){if(gpa===0)return 'Incomplete';if(gpa>=3.6)return 'Outstanding';if(gpa>=3.2)return 'Excellent';if(gpa>=2.8)return 'Very Good';if(gpa>=2.4)return 'Good';return 'Satisfactory';}
+
+function handleSearch(){
+  const sym = document.getElementById('searchInput').value.trim();
+  const dob = document.getElementById('dobInput').value.trim();
+  if(!sym || !dob){ 
+    document.getElementById('mainContent').innerHTML=`<div class="no-result"><div class="no-result-icon">⚠️</div><p style="font-size:15px;font-weight:600;margin-bottom:6px">Please fill in both fields</p><p style="font-size:13px;color:#888">Enter your Symbol Number and Date of Birth to continue.</p></div>`;
+    return; 
+  }
+  const s = students.find(x => x.symbol === sym);
+  if(!s){
+    document.getElementById('mainContent').innerHTML=`<div class="no-result"><div class="no-result-icon">🔍</div><p style="font-size:15px;font-weight:600;margin-bottom:6px">Symbol number not found</p><p style="font-size:13px;color:#888">Please check your symbol number and try again.</p></div>`;
+    return;
+  }
+  if(s.dob !== dob){
+    document.getElementById('mainContent').innerHTML=`<div class="no-result"><div class="no-result-icon">🔒</div><p style="font-size:15px;font-weight:600;margin-bottom:6px">Date of Birth does not match</p><p style="font-size:13px;color:#888">The date of birth you entered does not match our records. Please try again.</p></div>`;
+    return;
+  }
+  renderDetail(s);
+}
+function clearSearch(){ document.getElementById('searchInput').value=''; document.getElementById('dobInput').value=''; showPrompt(); }
+function showPrompt(){
+  document.getElementById('mainContent').innerHTML=`<div style="text-align:center;padding:3rem 1rem;color:#aaa"><div style="font-size:40px;margin-bottom:12px">🎓</div><p style="font-size:14px">Enter your symbol number and date of birth above to view your result</p></div>`;
+}
+
+function renderDetail(s){
+  const rows=Object.entries(s.subjects).map(([sub,d])=>`<tr><td style="font-weight:500">${sub}</td><td style="text-align:center"><span class="grade-badge ${gradeClass(d.in)}">${d.in}</span></td><td style="text-align:center;color:#888;font-size:12px">${d.inGp.toFixed(2)}</td><td style="text-align:center"><span class="grade-badge ${gradeClass(d.th)}">${d.th}</span></td><td style="text-align:center;color:#888;font-size:12px">${d.thGp.toFixed(2)}</td><td style="text-align:center"><span class="grade-badge ${gradeClass(d.total)}">${d.total}</span></td><td style="text-align:center;font-weight:600">${d.totalGp.toFixed(2)}</td></tr>`).join('');
+  const gpaHtml=s.gpa>0?`<div class="gpa-display"><div class="gpa-circle" style="border-color:${gpaColor(s.gpa)};color:${gpaColor(s.gpa)}">${s.gpa.toFixed(2)}</div><div><div class="gpa-label">Final GPA (out of 4.00)</div><div class="gpa-value" style="color:${gpaColor(s.gpa)}">${gpaLabel(s.gpa)}</div></div></div>`:`<div class="gpa-display"><div class="gpa-circle" style="border-color:#aaa;color:#aaa">—</div><div><div class="gpa-label">Final GPA</div><p style="font-size:14px;color:#888">Not calculated — NG in one or more subjects</p></div></div>`;
+  document.getElementById('mainContent').innerHTML=`
+    <button class="back-btn" onclick="clearSearch()">‹ Search another symbol number</button>
+    <div class="result-card">
+      <div class="student-header">
+        <div class="avatar">${getInitials(s.name)}</div>
+        <div><div class="student-name">${s.name}</div><div class="student-meta">Symbol No: ${s.symbol} &nbsp;·&nbsp; DOB: ${s.dob}</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item"><div class="meta-key">Roll No.</div><div class="meta-val">${s.sn}</div></div>
+        <div class="meta-item"><div class="meta-key">Father's Name</div><div class="meta-val" style="font-size:12px">${s.father}</div></div>
+        <div class="meta-item"><div class="meta-key">Mother's Name</div><div class="meta-val" style="font-size:12px">${s.mother}</div></div>
+        <div class="meta-item"><div class="meta-key">School Code</div><div class="meta-val">050660009</div></div>
+      </div>
+      <div style="overflow-x:auto">
+        <table class="subjects-table">
+          <thead><tr><th>Subject</th><th style="text-align:center">IN Grade</th><th style="text-align:center">IN GP</th><th style="text-align:center">TH Grade</th><th style="text-align:center">TH GP</th><th style="text-align:center">Total Grade</th><th style="text-align:center">Total GP</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+      ${gpaHtml}
+      <button class="print-btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+    </div>`;
+}
+
+showPrompt();
+</script>
+<footer style="text-align: center; padding: 10px; background: #f1f1f1;">
   Made with ❤️ by Nitesh
 </footer>
-
-<script>
-  // Set the countdown target: 48 hours from first visit, stored in localStorage
-  const DURATION_MS = 48 * 60 * 60 * 1000;
-  const STORAGE_KEY = 'zenith_result_launch';
-
-  let launchTime = localStorage.getItem(STORAGE_KEY);
-  if (!launchTime) {
-    launchTime = Date.now() + DURATION_MS;
-    localStorage.setItem(STORAGE_KEY, launchTime);
-  } else {
-    launchTime = parseInt(launchTime);
-  }
-
-  function pad(n) { return String(n).padStart(2, '0'); }
-
-  function tick() {
-    const now = Date.now();
-    const remaining = launchTime - now;
-
-    if (remaining <= 0) {
-      document.getElementById('t-hours').textContent = '00';
-      document.getElementById('t-minutes').textContent = '00';
-      document.getElementById('t-seconds').textContent = '00';
-      document.getElementById('progress-bar').style.width = '100%';
-      document.getElementById('expired-msg').style.display = 'block';
-      document.getElementById('cs-note').style.display = 'none';
-      return;
-    }
-
-    const totalHours = Math.floor(remaining / (1000 * 60 * 60));
-    const minutes    = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds    = Math.floor((remaining % (1000 * 60)) / 1000);
-
-    document.getElementById('t-hours').textContent   = pad(totalHours);
-    document.getElementById('t-minutes').textContent = pad(minutes);
-    document.getElementById('t-seconds').textContent = pad(seconds);
-
-    const elapsed = DURATION_MS - remaining;
-    const pct = Math.min(100, (elapsed / DURATION_MS) * 100);
-    document.getElementById('progress-bar').style.width = pct.toFixed(2) + '%';
-
-    setTimeout(tick, 1000);
-  }
-
-  tick();
-</script>
 </body>
 </html>
-
